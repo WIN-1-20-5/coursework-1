@@ -3,7 +3,7 @@
 ################################################################
 
 #обьявляем библиотеку(-и)
-
+import csv
 
 
 
@@ -38,33 +38,6 @@ file_name='dataset.csv'
 #   проверка соответствия базы данных
 ################################################################
 
-###записываем все данные
-###удаляем лишние столбцы    
-###добавляем запятые, если их меньше требуемого    
-##with open(file_name, "r") as file:
-##    data = file.readlines()
-##    
-##    for i in range(len(data)):        
-##        s = data[i]        
-##        s2 = s.split(',')
-##        if len(s2) < len(file_column):            
-##            data[i] = s[:-1:] + ',' * (len(file_column) - len(s2)) + '\n'
-##        elif len(s2) > len(file_column):
-##            s3 = []
-##            for j in range(len(file_column)):
-##                s3.append(s2[j])
-##            s = ''
-##            for j in s3:
-##                s += str(j) + ','
-##            s = s[:-1]
-##            s += '\n'            
-##            data[i] = s
-##        
-##with open(file_name, 'w') as file:
-##    file.writelines( data )
-
-
-
 
 
 ################################################################
@@ -79,8 +52,8 @@ def menu():
     print("2.  Ввести данные")
     print("3.  Редактировать строку")
     print("4.  Редактировать параметр строки")
-    print("5. !Редактировать параметры!")
-    #print("6. !Добавить параметр!")
+    print("5.  Удалить строку")
+    print("8. !Редактировать параметры!")
     print("9. !Очистить данные!")
     print("0.  Выйти из прогрпммы")
 
@@ -91,15 +64,52 @@ def inputO():
         o=input("_")
     return int(o)
 
+def inputA():
+    o=""
+    while o=="":
+        o=input("_")
+        if not('0'<=o<='9'):
+            o = ""
+            continue
+    return int(o)
+    
 #вывод базы данных
 def print_dataset(count_y,data,file_column):
     with open(file_name,'r') as file:
         print('Файл содержит:\n')
+       
         s = file.read()
-        s = s.split(',')
+        s = s.split('\n')
+        
+        d = []
         for i in s:
-            print(i, end='\t')
+            a = i.split(',')
+            d.append(a)
+        d = d[:-1:]
+        
+        maxs = [0]*len(d[0])
+        
+        for j in range(len(d[0])):
+            for i in range(len(d)):
+                if maxs[j] < len(d[i][j]):
+                    maxs[j] = len(d[i][j])
+        
+        b = []
+        c = ''
+        
+        for j in range(len(d)):
+            for i in range(len(d[0])):
+                
+                a = maxs[i] - len(d[j][i])
+                b.append(d[j][i] + ' '*(a))
+            for i in b:
+                c += i + ' | '
+            print(c)
+            c = ''
+            b = []
         print(f'\nВсего в файле {count_y} строк.')
+                
+    
         
 #ввод в базу данных
 def input_dataset(count_y,data,file_column):
@@ -199,6 +209,30 @@ def edit_3_dataset(count_y,data,file_column):
         file.writelines( data )
 
 
+
+#Удалить строку
+def delete_dataset(count_y,data,file_column):
+    print(f"Всего {count_y-1} редактируемых строк")
+    n = 0
+    while n<=0 or n>=count_y:
+        n = int(input("Какую строку вы хотите удалить?"))
+    
+    data[n] = ""
+    with open(file_name, 'w') as file:
+        file.writelines( data )
+        
+    with open(file_name, 'r') as file:
+        data = file.readlines()
+        for i in range(1,len(data)):
+            a = data[i].split(',')
+            a[0] = str(i)
+            s = ','.join(a)
+            data[i] = s
+
+    with open(file_name, 'w') as file:
+        file.writelines( data )
+
+        
 def clear_dataset(count_y,data,file_column):    
     with open(file_name, 'w') as file:
         file.write(data[0])
@@ -209,21 +243,6 @@ def clear_dataset(count_y,data,file_column):
 #   проверка соответствия базы данных
 ################################################################
         
-###опять делаем проверку на правильность составления базы данных 
-##with open(file_name, "r") as file:
-##    data = file.readlines()
-##    
-##    for i in range(len(data)):        
-##        s = data[i]        
-##        s2 = s.split(',')
-##        if len(s2) < len(file_column):            
-##            data[i] = s[:-1:] + ',' * (len(file_column) - len(s2)) + '\n'
-##        
-##with open(file_name, 'w') as file:
-##    file.writelines( data )
-
-
-
 
 
 ################################################################

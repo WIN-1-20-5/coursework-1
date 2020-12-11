@@ -2,6 +2,7 @@
 #   голова программы
 ################################################################
 
+import csv
 import modul as m
 
 #название файла
@@ -61,7 +62,7 @@ while True:
 #   Меню
 ################################################################
 
-    o = int(m.inputO())
+    o = (m.inputA())
 
 
     #0. Выход из программы
@@ -86,12 +87,12 @@ while True:
 
     #5
     elif o==5:
+        m.delete_dataset(count_y,data,file_column)
+        
+    #8
+    elif o==8:
         m.edit_3_dataset(count_y,data,file_column)
-
-    #6
-    elif o==6:
-        m.edit_4_dataset(count_y,data,file_column)
-
+        
     #9
     elif o==9:
         m.clear_dataset(count_y,data,file_column)

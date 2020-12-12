@@ -8,6 +8,15 @@ import modul as m
 #название файла
 file_name='dataset.csv'
 
+
+
+#################################################################
+#    регистрация
+#################################################################
+
+#import register
+
+
 #################################################################
 #    основная программа(while)
 #################################################################
@@ -89,9 +98,9 @@ while True:
     elif o==5:
         m.delete_dataset(count_y,data,file_column)
         
-    #8
-    elif o==8:
-        m.edit_3_dataset(count_y,data,file_column)
+##    #8
+##    elif o==8:
+##        m.edit_3_dataset(count_y,data,file_column)
         
     #9
     elif o==9:

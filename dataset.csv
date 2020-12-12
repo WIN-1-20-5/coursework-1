@@ -1,3 +1,7 @@
-id,car_num,master_name,car_mark,car_model,car_cost,car_color,car_masters,car_old
-1,,,,124,,,,
-2,,,,,,,,
+id,car_num,master_name,car_mark,car_model,car_cost($),car_color,car_masters,car_old(DD\MM\YYYY)
+1,,,subaru,,4000,black,,02.12.2000
+2,,,Nissan,,4100,purpul,,8.10.1999
+3,,,Honda,,5000,yellow,,31.02.2010
+4,,,mersedes,,3400,white,,15.06.2003
+5,,,Audi,,4000,red,,13.01.1996
+6,,,nissan,,2000,blue,,20.02.2001

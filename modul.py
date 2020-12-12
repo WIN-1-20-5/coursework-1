@@ -53,10 +53,12 @@ def menu():
     print("3.  Редактировать строку")
     print("4.  Редактировать параметр строки")
     print("5.  Удалить строку")
-    print("8. !Редактировать параметры!")
+##    print("8. !Редактировать параметры!")
     print("9. !Очистить данные!")
     print("0.  Выйти из прогрпммы")
 
+
+    
 #"небесячий" ввод
 def inputO():
     o=""
@@ -72,6 +74,14 @@ def inputA():
             o = ""
             continue
     return int(o)
+
+def inputB():
+    o=""
+    while o=="":
+        o=input("_")
+    return o
+
+
     
 #вывод базы данных
 def print_dataset(count_y,data,file_column):
@@ -190,6 +200,8 @@ def edit_2_dataset(count_y,data,file_column):
     with open(file_name, 'w') as file:
         file.writelines( data )
 
+
+
 #изменить параметры(нулевую строку)
 def edit_3_dataset(count_y,data,file_column):
     s = data[0]
@@ -232,7 +244,9 @@ def delete_dataset(count_y,data,file_column):
     with open(file_name, 'w') as file:
         file.writelines( data )
 
-        
+
+
+#Удалить данные(кроме нулевой строки)
 def clear_dataset(count_y,data,file_column):    
     with open(file_name, 'w') as file:
         file.write(data[0])

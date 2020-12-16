@@ -5,3 +5,4 @@ id,car_num,master_name,car_mark,car_model,car_cost($),car_color,car_masters,car_
 4,,,mersedes,,3400,white,,15.06.2003
 5,,,Audi,,4000,red,,13.01.1996
 6,,,nissan,,2000,blue,,20.02.2001
+7,0,1,d,ce,v,v,ve,ve

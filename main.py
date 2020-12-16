@@ -101,6 +101,10 @@ while True:
     #5
     elif o==5:
         m.delete_dataset(count_y,data,file_column)
+
+    #6
+    elif o==6:
+        import search
         
 ##    #8
 ##    elif o==8:

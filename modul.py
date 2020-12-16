@@ -137,19 +137,51 @@ def input_dataset(count_y,data,file_column):
     
 #коррекция "ненулевой строки"
 def edit_dataset(count_y,data,file_column):
+
     print(f"Всего {count_y-1} редактируемых строк")
     n = 0
     while n<=0 or n>=count_y:
         n = int(input("Какую строку вы хотите изменить?"))
-    
-    for i in file_column:
-        print(i, end='\t')
-    print()
-    s = data[n]
-    s = s.split(',')
-    for i in s:
-        print(i, end='\t')
-    print()
+
+
+    with open(file_name,'r') as file:
+        s = file.read()
+        s = s.split('\n')
+        
+        d = []
+        for i in [s[0],s[n]]:
+            a = i.split(',')
+            d.append(a)
+        
+        maxs = [0]*len(d[0])
+        
+        for j in range(len(d[0])):
+            for i in range(len(d)):
+                if maxs[j] < len(d[i][j]):
+                    maxs[j] = len(d[i][j])
+        
+        b = []
+        c = ''
+
+
+        for j in range(len(d)):
+            for i in range(len(d[0])):
+                
+                a = maxs[i] - len(d[j][i])
+                b.append(d[j][i] + ' '*(a))
+            for i in b:
+                c += i + ' | '
+            print(c)
+            c = ''
+            b = []
+##    for i in file_column:
+##        print(i, end='\t')
+##    print()
+##    s = data[n]
+##    s = s.split(',')
+##    for i in s:
+##        print(i, end='\t')
+##    print()
     d = str(n) + ',' 
     for i in range(1, len(file_column)):
         print(file_column[i], end='_')
@@ -163,27 +195,63 @@ def edit_dataset(count_y,data,file_column):
 
 #изменить конкретный параметр
 def edit_2_dataset(count_y,data,file_column):
+
     with open(file_name, "r") as file:         
         print(f"Всего {count_y-1} редактируемых строк")
         o = 0
         while o<=0 or o>=count_y:
             o = int(input("Какую строку вы хотите изменить?"))
 
+    with open(file_name,'r') as file:
+        s = file.read()
+        s = s.split('\n')
+        
+        ll = ''
+        for i in range(len(s[0].split(','))):
+            ll += str(i) + '),'
+        ll = ll[:-1:]
+        
+        d = []
+        for i in [ll,s[0],s[o]]:
+            a = i.split(',')
+            d.append(a)
+        
+        maxs = [0]*len(d[0])
+        
+        for j in range(len(d[0])):
+            for i in range(len(d)):
+                if maxs[j] < len(d[i][j]):
+                    maxs[j] = len(d[i][j])
+        
+        b = []
+        c = ''
+
+
+        for j in range(len(d)):
+            for i in range(len(d[0])):
+                
+                a = maxs[i] - len(d[j][i])
+                b.append(d[j][i] + ' '*(a))
+            for i in b:
+                c += i + ' | '
+            print(c)
+            c = ''
+            b = []
+##    with open(file_name, "r"):
+##        print()
+##        for i in range(len(file_column)):
+##            print(i, end = '\t')
+##        print()
+##        for i in file_column:
+##            print(i, end = '\t')
+##        print('\n')
+##        for i in s:
+##            print(i, end = '\t')
+##        print()
+
         s = str(data[o])
         s = s.split(',')
-
-    with open(file_name, "r"):
-        print()
-        for i in range(len(file_column)):
-            print(i, end = '\t')
-        print()
-        for i in file_column:
-            print(i, end = '\t')
-        print('\n')
-        for i in s:
-            print(i, end = '\t')
-        print()
-
+        
         o2 = 0
         while o2<=0 or o2>=len(file_column):
             o2 = int(input("Какой столбец вы хотите изменить?"))

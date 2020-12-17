@@ -4,7 +4,6 @@ class loginAndRegistr:
 
     def __init__(self):
         self.menu()
-        self.userStatus = ''
 
     def menu(self):
         print("Добро пожаловать! Пожалуйста, войдите в ситему или зарегестрируйтесь.")

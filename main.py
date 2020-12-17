@@ -6,20 +6,18 @@ import csv
 import modul as m
 from loginAndRegistr import loginAndRegistr 
 
-#логин и регистрация
-reg = loginAndRegistr()
-
 #название файла
 file_name='dataset.csv'
 
 
 
 #################################################################
-#    регистрация
+#    регистрация и логин
 #################################################################
-
-#import register
-
+reg = loginAndRegistr()
+print(reg)
+userStatus = reg.userStatus
+print(userStatus)
 
 #################################################################
 #    основная программа(while)
@@ -27,7 +25,7 @@ file_name='dataset.csv'
 
 while True:
     #вызов меню
-    m.menu()
+    m.menu(userStatus)
 
 ################################################################
 #   проверка соответствия базы данных

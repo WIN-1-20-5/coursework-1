@@ -47,15 +47,15 @@ file_name='dataset.csv'
 #вызов меню
 def menu():
     print("################################################################################")
-    print("Меню")
-    print("1.  Вывести данные")
-    print("2.  Ввести данные")
-    print("3.  Редактировать строку")
-    print("4.  Редактировать параметр строки")
-    print("5.  Удалить строку")
+    print("Menu")
+    print("1.  Show data")
+    print("2.  Write new data")
+    print("3.  Edit data")
+    print("4.  Edit template")
+    print("5.  Delete data")
 ##    print("8. !Редактировать параметры!")
     print("9. !Очистить данные!")
-    print("0.  Выйти из прогрпммы")
+    print("0.  Exit")
 
 
     
@@ -86,7 +86,7 @@ def inputB():
 #вывод базы данных
 def print_dataset(count_y,data,file_column):
     with open(file_name,'r') as file:
-        print('Файл содержит:\n')
+        print('File contains:\n')
        
         s = file.read()
         s = s.split('\n')
@@ -117,7 +117,7 @@ def print_dataset(count_y,data,file_column):
             print(c)
             c = ''
             b = []
-        print(f'\nВсего в файле {count_y} строк.')
+        print(f'\nTotal {count_y} strings in file.')
                 
     
         
@@ -138,10 +138,10 @@ def input_dataset(count_y,data,file_column):
 #коррекция "ненулевой строки"
 def edit_dataset(count_y,data,file_column):
 
-    print(f"Всего {count_y-1} редактируемых строк")
+    print(f"Total {count_y-1} editable strings")
     n = 0
     while n<=0 or n>=count_y:
-        n = int(input("Какую строку вы хотите изменить?"))
+        n = int(input("Which string would you like to edit ?"))
 
 
     with open(file_name,'r') as file:
@@ -197,10 +197,10 @@ def edit_dataset(count_y,data,file_column):
 def edit_2_dataset(count_y,data,file_column):
 
     with open(file_name, "r") as file:         
-        print(f"Всего {count_y-1} редактируемых строк")
+        print(f"Total {count_y-1} editable strings.")
         o = 0
         while o<=0 or o>=count_y:
-            o = int(input("Какую строку вы хотите изменить?"))
+            o = int(input("Which string wold you like to edit ?"))
 
     with open(file_name,'r') as file:
         s = file.read()
@@ -254,7 +254,7 @@ def edit_2_dataset(count_y,data,file_column):
         
         o2 = 0
         while o2<=0 or o2>=len(file_column):
-            o2 = int(input("Какой столбец вы хотите изменить?"))
+            o2 = int(input("Which column would you like to edit ?"))
         s[o2] = input('_')
 
         s2 = ''
@@ -275,7 +275,7 @@ def edit_3_dataset(count_y,data,file_column):
     s = data[0]
 
     print(data[0])
-    print("Cколько параметров вы хотите добавить?_")
+    print("How many parameters would you like to add ?_")
     n = int(inputO())
     d = 'id,' 
     for i in range(1,n+1):
@@ -292,10 +292,10 @@ def edit_3_dataset(count_y,data,file_column):
 
 #Удалить строку
 def delete_dataset(count_y,data,file_column):
-    print(f"Всего {count_y-1} редактируемых строк")
+    print(f"Total {count_y-1} editable strings")
     n = 0
     while n<=0 or n>=count_y:
-        n = int(input("Какую строку вы хотите удалить?"))
+        n = int(input("Which string would you like to delete ?"))
     
     data[n] = ""
     with open(file_name, 'w') as file:
@@ -333,4 +333,4 @@ def clear_dataset(count_y,data,file_column):
 
 #говорим пользователю, что он должен запустить основную программу   
 if __name__=="__main__":
-   print("вы в модуле, пожалуйста перейдите в основную программу")
+   print("You are in the module. Please, go to the main programm.")

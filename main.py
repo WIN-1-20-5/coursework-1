@@ -4,10 +4,6 @@
 
 import csv
 import modul as m
-from loginAndRegistr import loginAndRegistr 
-
-#логин и регистрация
-reg = loginAndRegistr()
 
 #название файла
 file_name='dataset.csv'

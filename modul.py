@@ -48,13 +48,13 @@ file_name='dataset.csv'
 def menu():
     print("################################################################################")
     print("Menu")
-    print("1.  Show data")
+    print("1.  Show dataset")
     print("2.  Write new data")
     print("3.  Edit data")
     print("4.  Edit template")
     print("5.  Delete data")
 ##    print("8. !Редактировать параметры!")
-    print("9. !Очистить данные!")
+    print("9. !Clean dataset!")
     print("0.  Exit")
 
 

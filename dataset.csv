@@ -9,3 +9,7 @@ id,car_num,master_name,car_mark,car_model,car_cost($),car_color,car_masters,car_
 8,б 022 еб,Tixonov Svyatoslav,Audi,A6,3400,silver,4,10.03.2002
 9,я 584 яр,Dmitriev Urii,Jaguar,XF,16900,Black,3,13.02.2014
 10,у 605 ле,Sokolov Yan,Subaru,outback,7500,silver,3,06.02.2006
+11,,,,,,,0,..
+,,,,,,,0,..
+,,,,,,,0,..
+,,,,,,,

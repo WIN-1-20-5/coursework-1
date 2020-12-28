@@ -74,6 +74,15 @@ while True:
                     if j<len(s2):
                         s3+=','
                 data[i]=s3
+        #владельцы
+            elif not('0'<=str(s2[-2])<='99') and i>0:
+                s2[-2] = '0'
+                s3 = ''
+                for j in range(len(s2)):
+                    s3+=s2[j]
+                    if j<len(s2):
+                        s3+=','
+                data[i]=s3
 
         #цена
             s = data[i]        
@@ -87,6 +96,9 @@ while True:
                 if j<len(s2)-1:
                     s3+=','
             data[i]=s3
+
+        #владельцы
+
             
     #записываем все данные
     with open(file_name, 'w') as file:

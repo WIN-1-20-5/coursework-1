@@ -20,23 +20,48 @@ import csv
 #название файла
 file_name='dataset.csv'
 
-#####измеряем кол-во строк
-####count_y = 0
-####with open(file_name, "r") as file:
-####    s = file.read()
-####    count_y += len(s.split('\n')) - 1
-##    
-###записываем названия столбцов
-##with open(file_name, "r") as file:        
-##    file_column = file.read()    
-##    n = file_column.find('\n')
-##    file_column = file_column[:n]
-##    file_column = file_column.split(',')
-
-
 ################################################################
 #   проверка соответствия базы данных
 ################################################################
+
+##    #записываем названия столбцов
+##    with open(file_name, "r") as file:        
+##        file_column = file.read()    
+##        n = file_column.find('\n')
+##        file_column = file_column[:n]
+##        file_column = file_column.split(',')
+
+        
+##    #измеряем кол-во строк
+##    count_y = 0
+##    with open(file_name, "r") as file:
+##        s = file.read()
+##        count_y += len(s.split('\n')) - 1
+
+            
+##    #записываем все данные
+##    #удаляем лишние столбцы    
+##    #добавляем запятые, если их меньше требуемого    
+##    with open(file_name, "r") as file:
+##        data = file.readlines()
+##
+##        
+##    
+##        for i in range(len(data)):        
+##            s = data[i]        
+##            s2 = s.split(',')
+##            if len(s2) < len(file_column):            
+##                data[i] = s[:-1:] + ',' * (len(file_column) - len(s2)) + '\n'
+##            elif len(s2) > len(file_column):
+##                s3 = []
+##                for j in range(len(file_column)):
+##                    s3.append(s2[j])
+##                s = ''
+##                for j in s3:
+##                    s += str(j) + ','
+##                s = s[:-1]
+##                s += '\n'            
+##                data[i] = s
 
 
 
@@ -47,25 +72,20 @@ file_name='dataset.csv'
 #вызов меню
 def menu():
     print("################################################################################")
-    print("Меню")
-    print("1.  Вывести данные")
-    print("2.  Ввести данные")
-    print("3.  Редактировать строку")
-    print("4.  Редактировать параметр строки")
-    print("5.  Удалить строку")
+    print("Menu")
+    print("1.  Show dataset")
+    print("2.  Write new data")
+    print("3.  Edit data")
+    print("4.  Edit template")
+    print("5.  Delete data")
+    print("6.  Search in data")
 ##    print("8. !Редактировать параметры!")
-    print("9. !Очистить данные!")
-    print("0.  Выйти из прогрпммы")
+    print("9. !Clean dataset!")
+    print("0.  Exit")
 
 
     
 #"небесячий" ввод
-def inputO():
-    o=""
-    while o=="":
-        o=input("_")
-    return int(o)
-
 def inputA():
     o=""
     while o=="":
@@ -84,9 +104,10 @@ def inputB():
 
     
 #вывод базы данных
-def print_dataset(count_y,data,file_column):
+def print_dataset(count_y):
+       
     with open(file_name,'r') as file:
-        print('Файл содержит:\n')
+        print('File contains:\n')
        
         s = file.read()
         s = s.split('\n')
@@ -117,13 +138,13 @@ def print_dataset(count_y,data,file_column):
             print(c)
             c = ''
             b = []
-        print(f'\nВсего в файле {count_y} строк.')
+        print(f'\nTotal {count_y-1} strings in file.')
                 
     
         
 #ввод в базу данных
-def input_dataset(count_y,data,file_column):
-
+def input_dataset(file_column,count_y):
+    
     d = str(count_y) + ',' 
     for i in range(1, len(file_column)):
         print(file_column[i], end='_')
@@ -136,12 +157,13 @@ def input_dataset(count_y,data,file_column):
 
     
 #коррекция "ненулевой строки"
-def edit_dataset(count_y,data,file_column):
-
-    print(f"Всего {count_y-1} редактируемых строк")
+def edit_dataset(file_column,count_y,data):
+        
+    print(f"Total {count_y-1} editable strings")
     n = 0
     while n<=0 or n>=count_y:
-        n = int(input("Какую строку вы хотите изменить?"))
+        print("Which string would you like to edit ?")
+        n = inputA()
 
 
     with open(file_name,'r') as file:
@@ -174,14 +196,7 @@ def edit_dataset(count_y,data,file_column):
             print(c)
             c = ''
             b = []
-##    for i in file_column:
-##        print(i, end='\t')
-##    print()
-##    s = data[n]
-##    s = s.split(',')
-##    for i in s:
-##        print(i, end='\t')
-##    print()
+            
     d = str(n) + ',' 
     for i in range(1, len(file_column)):
         print(file_column[i], end='_')
@@ -194,13 +209,14 @@ def edit_dataset(count_y,data,file_column):
         file.writelines( data )
 
 #изменить конкретный параметр
-def edit_2_dataset(count_y,data,file_column):
-
+def edit_2_dataset(file_column,count_y,data):
+        
     with open(file_name, "r") as file:         
-        print(f"Всего {count_y-1} редактируемых строк")
+        print(f"Total {count_y-1} editable strings.")
         o = 0
         while o<=0 or o>=count_y:
-            o = int(input("Какую строку вы хотите изменить?"))
+            print("Which string wold you like to edit ?")
+            o = inputA()
 
     with open(file_name,'r') as file:
         s = file.read()
@@ -237,24 +253,14 @@ def edit_2_dataset(count_y,data,file_column):
             print(c)
             c = ''
             b = []
-##    with open(file_name, "r"):
-##        print()
-##        for i in range(len(file_column)):
-##            print(i, end = '\t')
-##        print()
-##        for i in file_column:
-##            print(i, end = '\t')
-##        print('\n')
-##        for i in s:
-##            print(i, end = '\t')
-##        print()
 
         s = str(data[o])
         s = s.split(',')
         
         o2 = 0
         while o2<=0 or o2>=len(file_column):
-            o2 = int(input("Какой столбец вы хотите изменить?"))
+            print("Which column would you like to edit ?")
+            o2 = inputA()
         s[o2] = input('_')
 
         s2 = ''
@@ -271,12 +277,13 @@ def edit_2_dataset(count_y,data,file_column):
 
 
 #изменить параметры(нулевую строку)
-def edit_3_dataset(count_y,data,file_column):
+def edit_3_dataset(data):
+       
     s = data[0]
 
     print(data[0])
-    print("Cколько параметров вы хотите добавить?_")
-    n = int(inputO())
+    print("How many parameters would you like to add ?_")
+    n = inputA()
     d = 'id,' 
     for i in range(1,n+1):
         print(i, end='_')
@@ -291,11 +298,13 @@ def edit_3_dataset(count_y,data,file_column):
 
 
 #Удалить строку
-def delete_dataset(count_y,data,file_column):
-    print(f"Всего {count_y-1} редактируемых строк")
+def delete_dataset(file_column,count_y,data):
+
+    print(f"Total {count_y-1} editable strings")
     n = 0
     while n<=0 or n>=count_y:
-        n = int(input("Какую строку вы хотите удалить?"))
+        print("Which string would you like to delete ?")
+        n = inputA()
     
     data[n] = ""
     with open(file_name, 'w') as file:
@@ -315,15 +324,10 @@ def delete_dataset(count_y,data,file_column):
 
 
 #Удалить данные(кроме нулевой строки)
-def clear_dataset(count_y,data,file_column):    
+def clear_dataset(data):
+        
     with open(file_name, 'w') as file:
         file.write(data[0])
-
-
-
-################################################################
-#   проверка соответствия базы данных
-################################################################
         
 
 
@@ -333,4 +337,4 @@ def clear_dataset(count_y,data,file_column):
 
 #говорим пользователю, что он должен запустить основную программу   
 if __name__=="__main__":
-   print("вы в модуле, пожалуйста перейдите в основную программу")
+   print("You are in the module. Please, go to the main programm.")

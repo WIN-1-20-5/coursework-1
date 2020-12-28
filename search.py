@@ -128,14 +128,7 @@ def search_menu(s_st,mark_on,color_on):
         q = s_data[0]
         s_data = q_data
         s_data.insert(0, q)
-        
-
-                
-        
-    
-        
-        
-    
+  
 
 #отображение
     if len(s_data)>1:
@@ -296,7 +289,10 @@ while True:
         else:
             s_st[2] = 0
             color_on = color_reverse(color_on)
-            
+
+    elif type(o)==type(0):
+        continue
+    
     elif o.upper() in mark and s_st[0]==1:
         o = o.upper()
         if mark_on[mark.index(o)] == 'ON':
@@ -311,7 +307,8 @@ while True:
         elif color_on[color.index(o)] == 'OFF':
             color_on[color.index(o)] = 'ON'
         
-    
+
+    print()    
             
 
 

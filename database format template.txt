@@ -1,0 +1,11 @@
+id,car_num,master_name,car_mark,car_model,car_cost($),car_color,car_masters,car_old(DD\MM\YYYY)
+1,A 129 TR,Panfilov Anatolii,Honda,CR-V III 2.4,10 577,silver,2,01.05.2001
+2,A 523 DD,Komissarov Gordii,Toyota,Avalon 2013,15800,silver,1,04.12.2003
+3,К 449 АТ,Sorokina Anelya,Toyota,GT86 2.0,20 700,yellow,1,16.11.2015
+4,М 730 НВ,Andreev Semen,Mazda,3 I(BK),5700,gray,2,17.01.2009
+5,Х 838 СЕ,Mamontov Mstislav,Nissan,Patrol VI (Y62),22 500,white,3,21.09.2010
+6,К 673 ХЕ,Ignatov Egor,Lexus,RX III,16 500,black,1,10.06.2009
+7,О 251 YM,Lapin Yaroslav,BMW,M5,18000,white,4,27.03.2007
+8,В 022 ЕВ,Tixonov Svyatoslav,Audi,A6,3400,silver,4,10.03.2002
+9,С 584 СТ,Dmitriev Urii,Jaguar,XF,16900,Black,3,13.02.2014
+10,Х 605 МЕ,Sokolov Yan,Subaru,outback,7500,silver,3,06.02.2006

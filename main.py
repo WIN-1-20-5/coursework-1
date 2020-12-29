@@ -142,6 +142,7 @@ while True:
     #6
     elif o==6:
         import search
+        break
         
 ##    #8
 ##    elif o==8:

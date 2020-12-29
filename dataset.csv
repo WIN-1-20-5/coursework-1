@@ -1,11 +1,11 @@
 id,car_num,master_name,car_mark,car_model,car_cost($),car_color,car_masters,car_old(DD\MM\YYYY)
 1,A 129 TR,Panfilov Anatolii,Honda,CR-V III 2.4,10577,silver,2,01.05.2001
-2,A 523 DD,Komissarov Gordii,Toyota,Avalon 2013,15800,silver,1,04.12.2003
-3,й 449 юр,Sorokina Anelya,Toyota,GT86 2.0,20700,yellow,1,16.11.2015
-4,л 730 мб,Andreev Semen,Mazda,3 I(BK),5700,gray,2,17.01.2009
-5,у 838 яе,Mamontov Mstislav,Nissan,Patrol VI (Y62),22500,white,3,21.09.2010
-6,й 673 уе,Ignatov Egor,Lexus,RX III,16500,black,1,10.06.2009
-7,н 251 YM,Lapin Yaroslav,BMW,M5,18000,white,4,27.03.2007
-8,б 022 еб,Tixonov Svyatoslav,Audi,A6,3400,silver,4,10.03.2002
-9,я 584 яр,Dmitriev Urii,Jaguar,XF,16900,Black,3,13.02.2014
-10,у 605 ле,Sokolov Yan,Subaru,outback,7500,silver,3,06.02.2006
+2,3,й 449 юр,Sorokina Anelya,Toyota,GT8620,20700,0,..
+,3,у 838 яе,Mamontov Mstislav,Nissan,PatrolVI(Y62),22500,white,..
+5,н 251 YM,Lapin Yaroslav,BMW,M5,18000,white,4,27.03.2007
+6,б 022 еб,Tixonov Svyatoslav,Audi,A6,3400,silver,4,10.03.2002
+7,я 584 яр,Dmitriev Urii,Jaguar,XF,16900,Black,3,13.02.2014
+8,у 605 ле,Sokolov Yan,Subaru,outback,7500,silver,3,06.02.2006
+9,ba 123 xc,Aman,Lexus,GX 470,20000,white,0,10.11.2010
+10,,,,,,,0,..
+11,,,,,,,,..
